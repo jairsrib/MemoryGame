@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Memória - Escolha a Dificuldade</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-container">
+        <h1>Bem-vindo ao Jogo da Memória</h1>
+        
+        <!-- Formulário para escolher dificuldade -->
+        <div class="difficulty-selection">
+            <label for="difficulty">Escolha a dificuldade:</label>
+            <select id="difficulty">
+                <option value="facil">Fácil </option>
+                <option value="medio">Médio </option>
+                <option value="dificil">Difícil </option>
+            </select>
+        </div>
+
+        <!-- Input para o nome do jogador -->
+        <div class="name-input">
+            <label for="player-name">Digite seu nome:</label>
+            <input type="text" id="player-name" placeholder="Seu nome" required>
+        </div>
+
+        <!-- Botão para iniciar o jogo -->
+        <button id="start-game">Iniciar Jogo</button>
+    </div>
+
+    <script src="scriptgame.js"></script>
+</body>
+</html>
