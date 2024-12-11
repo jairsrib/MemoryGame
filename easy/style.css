@@ -68,3 +68,15 @@ h1 {
     color: #333;
     background-color: white;
 }
+
+/* Estilos para o ranking */
+#ranking-facil {
+    list-style-type: decimal;
+    margin-top: 20px;
+    padding-left: 20px;
+}
+
+#ranking-facil li {
+    font-size: 18px;
+    margin: 5px 0;
+}

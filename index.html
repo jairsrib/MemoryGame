@@ -10,7 +10,6 @@
     <div class="main-container">
         <h1>Bem-vindo ao Jogo da Memória</h1>
         
-        <!-- Formulário para escolher dificuldade -->
         <div class="difficulty-selection">
             <label for="difficulty">Escolha a dificuldade:</label>
             <select id="difficulty">
@@ -20,16 +19,32 @@
             </select>
         </div>
 
-        <!-- Input para o nome do jogador -->
         <div class="name-input">
             <label for="player-name">Digite seu nome:</label>
             <input type="text" id="player-name" placeholder="Seu nome" required>
         </div>
 
-        <!-- Botão para iniciar o jogo -->
         <button id="start-game">Iniciar Jogo</button>
     </div>
-
+    <div class="ranking">
+        <h2>Ranking dos Melhores Tempos</h2>
+    
+        <h3>Fácil</h3>
+        <ol id="ranking-easy">
+            <!-- Ranking fácil será preenchido dinamicamente -->
+        </ol>
+    
+        <h3>Médio</h3>
+        <ol id="ranking-medium">
+            <!-- Ranking médio será preenchido dinamicamente -->
+        </ol>
+    
+        <h3>Difícil</h3>
+        <ol id="ranking-hard">
+            <!-- Ranking difícil será preenchido dinamicamente -->
+        </ol>
+    </div>
+    
     <script src="scriptgame.js"></script>
 </body>
 </html>

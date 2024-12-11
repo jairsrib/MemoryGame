@@ -17,7 +17,7 @@ let timer;
 let seconds = 61;  
 let gameOver = false; // Flag para verificar se o jogo acabou
 let timerStarted = false;  // Flag para controlar quando o timer começa
-
+displayRanking();
 // Função para criar a carta
 function createCard(value) {
     const card = document.createElement('div');
@@ -83,7 +83,7 @@ function checkMatch() {
     if (matchedCards.length === cards.length) {
         clearInterval(timer); // Parar o timer
         gameOver = true; // Finalizar o jogo
-        setTimeout(() => alert(`Você venceu! Tempo: ${seconds}s`), 500); // Exibir tempo
+        setTimeout(() => endGame(seconds), 500); // Exibir tempo
     }
 }
 
@@ -103,3 +103,52 @@ function startTimer() {
 
 // Inicializar o jogo
 shuffleCards();
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const rankingSection = document.querySelector('.ranking');
+    if (rankingSection) {
+        displayRanking();
+    }
+});
+function saveToRanking(time) {
+    const key = 'ranking-facil';  // Armazenando para a dificuldade 'fácil'
+    const ranking = JSON.parse(localStorage.getItem(key)) || [];
+    const playerNameMenu = localStorage.getItem("playerName");
+    // Adicionar o novo tempo e nome ao ranking
+    ranking.push({ name: playerNameMenu, time });
+
+    // Ordenar o ranking pelo tempo (menor tempo primeiro)
+    ranking.sort((a, b) => a.time - b.time);
+
+    // Manter apenas os 10 melhores
+    if (ranking.length > 10) ranking.pop();
+
+    // Salvar no localStorage
+    localStorage.setItem(key, JSON.stringify(ranking));
+}
+function displayRanking() {
+    const key = 'ranking-facil';  // A chave de armazenamento para o ranking 'fácil'
+    const ranking = JSON.parse(localStorage.getItem(key)) || [];
+    const rankingList = document.getElementById('ranking-facil');
+
+    rankingList.innerHTML = '';  // Limpar o conteúdo atual da lista
+
+    // Preencher a lista com os melhores tempos
+    ranking.forEach((entry, index) => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${index + 1}. ${entry.name} - ${entry.time}s`;
+        rankingList.appendChild(listItem);
+    });
+}
+
+
+    // Salvar no ranking da dificuldade fácil
+    saveToRanking();
+
+    // Exibir o ranking atualizado
+    displayRanking();
+
+
